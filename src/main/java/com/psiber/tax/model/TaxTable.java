@@ -4,11 +4,11 @@ import java.util.Map;
 
 public class TaxTable {
 
-    private int year;
-    private Map<IncomeBracket, IncomeRate> taxLevels;
-    private Map<AgeBracket, Money> rebates;
-    private Map<AgeBracket, Money> thresholds;
-    private Map<MedAidCredits, Money> medAidCredits;
+    private final int year;
+    private final Map<IncomeBracket, IncomeRate> taxLevels;
+    private final Map<AgeBracket, Money> rebates;
+    private final Map<AgeBracket, Money> thresholds;
+    private final Map<MedAidCredits, Money> medAidCredits;
 
     public TaxTable(int year, Map<IncomeBracket, IncomeRate> taxLevels,
                     Map<AgeBracket, Money> rebates, Map<AgeBracket, Money> thresholds,
@@ -109,7 +109,7 @@ public class TaxTable {
         }
     }
 
-    public static enum AgeBracket{
+    public enum AgeBracket{
         BELOW_65("Primary", 1, 64),
         BELOW_75("Secondary", 65, 74),
         ABOVE_74("Tertiary", 75, 120);
@@ -137,7 +137,7 @@ public class TaxTable {
         }
     }
 
-    public static enum MedAidCredits{
+    public enum MedAidCredits{
         TAX_PAYER("per month for the taxpayer who paid the medical scheme contributions"),
         FIRST_DEP( "per month for the first dependant"),
         ADD_DEP("per month for each additional dependant(s)");
